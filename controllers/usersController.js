@@ -3,7 +3,7 @@ const config = require('../config');
 
 const sql = require('mssql');
 
-const bcrypt = require('bcrypt');
+const bcrypt = require('bcryptjs');
 const jwt = require('jsonwebtoken');
 const { secretKey } = require('../config');
 

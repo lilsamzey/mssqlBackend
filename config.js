@@ -85,14 +85,14 @@ const sql = require('mssql');
 async function connectToDatabase() {
   try {
     const config = {
-      user: 'admin',
-      password: 'Klmn-32553255',
-      server: 'coursemanagementsystem.cfgtwzvplpnc.eu-north-1.rds.amazonaws.com',
-      database: 'EdnoSchoolManagementSystem',
-      options: {
-         encrypt: true,
-      trustServerCertificate: true,
-      }
+      user: 'sqlserver',
+  password: 'Klmn-32553255',
+  server: '34.70.34.112', // Doğru server adresini buraya girin
+  database: 'zolinex',
+  options: {
+    encrypt: true,
+    trustServerCertificate: true,
+  }
     };
 
     await sql.connect(config);

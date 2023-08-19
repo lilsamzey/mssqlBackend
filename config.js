@@ -87,7 +87,8 @@ async function connectToDatabase() {
     const config = {
       user: 'sqlserver',
   password: 'Klmn-32553255',
-  server: '34.70.34.112', // Doğru server adresini buraya girin
+  server: '34.70.34.112',
+     port: 1433,// Doğru server adresini buraya girin
   database: 'zolinex',
   options: {
     encrypt: true,

@@ -85,10 +85,10 @@ const sql = require('mssql');
 async function connectToDatabase() {
   try {
     const config = {
+     server: '34.70.34.112',
+     port: 1433,
       user: 'sqlserver',
   password: 'Klmn-32553255',
-  server: '34.70.34.112',
-     port: 1433,// Doğru server adresini buraya girin
   database: 'zolinex',
   options: {
     encrypt: true,

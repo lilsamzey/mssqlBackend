@@ -120,7 +120,7 @@ exports.markEmailAsRead = async (inboxId) => {
 
     const query = `
       UPDATE EmailInbox
-      SET IsRead = 1
+      SET IsReadByReceiver = 1
       WHERE InboxId = ${inboxId};
     `;
 
@@ -137,10 +137,55 @@ exports.markEmailAsDeleted = async (inboxId) => {
 
     const query = `
       UPDATE EmailInbox
-      SET IsDeleted = 1
+      SET IsDeletedByReceiver = 1
       WHERE InboxId = ${inboxId};
     `;
+console.log('completely deleted emaiid', inboxId)
+    await pool.request().query(query);
+  } catch (error) {
+    throw error;
+  }
+};
 
+
+
+
+
+exports.markSentEmailAsDeleted = async (InboxId) => {
+  try {
+    const pool =  await new sql.connect(config);
+
+    const query = `
+      UPDATE EmailInbox
+      SET IsDeletedBySender = 1
+      WHERE InboxId = ${InboxId};
+    `;
+console.log('completely deleted emaiid', InboxId)
+    await pool.request().query(query);
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+
+
+
+
+
+
+
+
+exports.deleteEmailCompletely = async (InboxId) => {
+  
+  try {
+    const pool =  await new sql.connect(config);
+
+    const query = `
+      delete EmailInbox
+      WHERE InboxId = ${InboxId};
+    `;
+console.log('completely deleted email 2', InboxId)
     await pool.request().query(query);
   } catch (error) {
     throw error;

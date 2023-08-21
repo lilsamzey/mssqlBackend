@@ -13,5 +13,10 @@ router.post('/insert', emailController.insertEmail);
 router.put('/mark-as-read/:inboxId', emailController.markEmailAsRead);
 router.put('/deleteEmail/:inboxId', emailController.markEmailAsDeleted);
 
+router.put('/deletesentemail/:InboxId', emailController.markSentEmailAsDeleted);
+
+router.delete('/deleteemailcompletely/:InboxId', emailController.deleteEmailCompletely);
+
+
 
 module.exports = router;

@@ -85,3 +85,50 @@ exports.markEmailAsDeleted = async (req, res) => {
     res.status(500).json({ message: 'E-posta okunmuş olarak işaretlenirken bir hata oluştu.' });
   }
 };
+
+
+
+
+exports.deleteEmailCompletely = async (req, res) => {
+  
+  try {
+    const { InboxId } = req.params;
+    console.log(InboxId)
+    console.log('completely deleted email 2', InboxId)
+    await emailModel.deleteEmailCompletely(InboxId);
+    res.status(200).json({ message: 'E-posta silindi olarak işaretlendi.' });
+  } catch (error) {
+    console.error('E-posta silindi olarak işaretlenirken bir hata oluştu:', error);
+    res.status(500).json({ message: 'E-posta okunmuş olarak işaretlenirken bir hata oluştu.' });
+  }
+};
+
+
+
+
+exports.markSentEmailAsDeleted = async (req, res) => {
+  
+  try {
+    const { InboxId } = req.params;
+    console.log('sentEmailId',InboxId)
+    await emailModel.markSentEmailAsDeleted(InboxId);
+    res.status(200).json({ message: 'E-posta silindi olarak işaretlendi.' });
+  } catch (error) {
+    console.error('E-posta silindi olarak işaretlenirken bir hata oluştu:', error);
+    res.status(500).json({ message: 'E-posta okunmuş olarak işaretlenirken bir hata oluştu.' });
+  }
+};
+
+
+
+
+
+
+
+
+
+
+
+
+
+

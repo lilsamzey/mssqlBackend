@@ -14,7 +14,7 @@
 
 
 
-// const sql = require("mssql/msnodesqlv8");
+// const sql = require("mssql");
 
 // async function connectToDatabase() {
 //   try {
@@ -43,19 +43,21 @@
 
 
 
-// const sql = require("mssql/msnodesqlv8");
+// //Google Cloud
+
+// const sql = require("mssql");
 
 // async function connectToDatabase() {
 //   try {
 //     const pool = await sql.connect({
-//       server: "coursemanagementsystem.cfgtwzvplpnc.eu-north-1.rds.amazonaws.com",
-//       port: 1433,
-//       database: "EdnoSchoolManagementSystem",
-//       user: "admin", 
+//       server: "34.70.34.112",
+//       // port: 1433,
+//       database: "zolinex",
+//       user: "sqlserver", 
 //       password: "Klmn-32553255", 
 //       options: {
-//         // encrypt: true,
-//         // trustServerCertificate: true,
+//         encrypt: true,
+//         trustServerCertificate: true,
 //       },
 //     });
 
@@ -79,6 +81,7 @@
 
 
 
+//Amazon AWS FREE Tier
 
 const sql = require('mssql');
 
@@ -87,8 +90,8 @@ async function connectToDatabase() {
     const config = {
       user: 'admin',
       password: 'Klmn-32553255',
-      server: 'coursemanagementsystem.cfgtwzvplpnc.eu-north-1.rds.amazonaws.com',
-      database: 'EdnoSchoolManagementSystem',
+      server: 'awssqlserver.ccrtpn4jk1n3.eu-central-1.rds.amazonaws.com',
+      database: 'coursemanagementsystem',
       options: {
          encrypt: true,
       trustServerCertificate: true,
@@ -97,7 +100,7 @@ async function connectToDatabase() {
 
     await sql.connect(config);
 
-    console.log('Connected to the database successfully!');
+    console.log(' Connected to the AWS database successfully!');
 
     // Bağlantıyı kapatmak için gerekirse kullanabilirsiniz
     // sql.close();

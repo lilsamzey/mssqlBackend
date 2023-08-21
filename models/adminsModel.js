@@ -36,7 +36,7 @@ exports.getAllAdmins = async () => {
     try {
         console.log(admin.mobile)
      const pool = await new sql.connect(config);
-      const result = await pool.request().query(`EXEC AddAdminAndUser '${admin.firstName}', '${admin.lastName}', '${admin.email}', ${admin.address}, '${admin.mobile}'`);
+      const result = await pool.request().query(`EXEC AddAdminAndUser '${admin.firstName}', '${admin.lastName}', '${admin.email}', '${admin.address}', '${admin.mobile}'`);
       return result.recordset;
     } catch (error) {
       console.log(error)

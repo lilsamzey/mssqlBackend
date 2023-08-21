@@ -88,6 +88,7 @@ const sql = require('mssql');
 async function connectToDatabase() {
   try {
     const config = {
+<<<<<<< HEAD
       user: 'admin',
       password: 'Klmn-32553255',
       server: 'awssqlserver.ccrtpn4jk1n3.eu-central-1.rds.amazonaws.com',
@@ -96,6 +97,17 @@ async function connectToDatabase() {
          encrypt: true,
       trustServerCertificate: true,
       }
+=======
+     server: '34.70.34.112',
+     port: 1433,
+      user: 'sqlserver',
+  password: 'Klmn-32553255',
+  database: 'zolinex',
+  options: {
+    encrypt: true,
+    trustServerCertificate: true,
+  }
+>>>>>>> 3b0ee139c580db35580d0ce0dca4abfff50a1529
     };
 
     await sql.connect(config);

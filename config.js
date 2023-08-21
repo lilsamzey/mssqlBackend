@@ -102,6 +102,24 @@ async function connectToDatabase() {
 
     console.log(' Connected to the AWS database successfully!');
 
+
+
+   //Keep alive database
+   const pool = new sql.connect(config);
+   setInterval(async () => {
+    try {
+        const result = await pool.request().query('SELECT 1');
+        console.log('Keep-alive is successfull.');
+    } catch (error) {
+        console.error('Keep-alive error:', error);
+    }
+}, 5 * 60 * 1000);  // 5 dakika
+
+
+
+
+
+   
     // Bağlantıyı kapatmak için gerekirse kullanabilirsiniz
     // sql.close();
   } catch (err) {
@@ -114,20 +132,6 @@ connectToDatabase();
 
 
 
-//Keep alive database
-
-const pool = new sql.connect(config);
-
-
-// Her 5 dakikada bir "keep-alive" sorgusu gönder
-setInterval(async () => {
-    try {
-        const result = await pool.request().query('SELECT 1');
-        console.log('Keep-alive is successfull.');
-    } catch (error) {
-        console.error('Keep-alive error:', error);
-    }
-}, 5 * 60 * 1000);  // 5 dakika
 
 
 

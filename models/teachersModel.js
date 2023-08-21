@@ -77,7 +77,7 @@ exports.addTeacher = async (teacher) => {
 
     const userQuery = `
       INSERT INTO Users (username, password, email, lastName, role, token, img, firstName)
-      VALUES ('${username}', '${password}', '${teacher.email}', '${teacher.last}', '${role}', '${token}', '${img}', '${firstName}')
+      VALUES ('${username}', '${password}', '${teacher.email}', '${teacher.lastName}', '${role}', '${token}', '${img}', '${firstName}')
     `;
     await pool.request().query(userQuery);
 

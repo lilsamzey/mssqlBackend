@@ -94,13 +94,23 @@ async function connectToDatabase() {
       database: 'coursemanagementsystem',
       options: {
          encrypt: true,
-      trustServerCertificate: true,
+         trustServerCertificate: true,
       }
     };
 
-    await sql.connect(config);
+    const pool = await sql.connect(config); // Bağlantıyı 'pool' değişkenine atayın
 
-    console.log(' Connected to the AWS database successfully!');
+    console.log('Connected to the AWS database successfully!');
+
+    // Keep alive database
+    setInterval(async () => {
+      try {
+        const result = await pool.request().query('SELECT 1');
+        console.log('Keep-alive is successful.');
+      } catch (error) {
+        console.error('Keep-alive error:', error);
+      }
+    }, 5 * 60 * 1000);  // 5 dakika
 
     // Bağlantıyı kapatmak için gerekirse kullanabilirsiniz
     // sql.close();
@@ -111,3 +121,13 @@ async function connectToDatabase() {
 
 // Fonksiyonu çağırarak veritabanına bağlanın
 connectToDatabase();
+
+
+
+
+
+
+
+
+
+

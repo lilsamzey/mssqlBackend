@@ -2,10 +2,6 @@ const sql = require('mssql');
 const config = require('../config');
 const filesModel = require('../models/filesModel');
 
-const sql = require('mssql');
-const config = require('../config');
-const filesModel = require('../models/filesModel');
-
 const uploadFile = async (req, res) => {
   try {
     if (!req.file) {
@@ -27,10 +23,6 @@ const uploadFile = async (req, res) => {
     console.error('Dosya yüklenirken hata oluştu:', error);
     res.status(500).json({ error: 'Dosya yüklenirken hata oluştu.' });
   }
-};
-
-module.exports = {
-  uploadFile,
 };
 
 module.exports = {

@@ -100,62 +100,10 @@ exports.addTeacher = async (teacher) => {
 
 
 
-// exports.addTeacher = async (teacher) => {
-//   let pool;
-//   try {
-//     pool = await new sql.connect(config);
 
-//     // Öğretmenin e-posta adresini kontrol et
-//     const emailExistsQuery = `
-//       SELECT * FROM Users WHERE email = '${teacher.email}';
-//     `;
-//     const emailExistsResult = await pool.request().query(emailExistsQuery);
 
-//     if (emailExistsResult.recordset.length > 0) {
-//       throw new Error('Failed to add teacher. Email already exists.');
-//     }
 
-//     // Öğretmeni Teachers tablosuna ekle
-//     const query = `
-//       INSERT INTO Teachers (firstName, lastName, gender, mobile, password, confirmPassword, email, designation, department, address, dob, education, uploadFile)
-//       VALUES ('${teacher.first}', '${teacher.last}', '${teacher.gender}', '${teacher.mobile}', '${teacher.password}', '${teacher.conformPassword}', '${teacher.email}', '${teacher.designation}', '${teacher.department}', '${teacher.address}', '${teacher.dob}', '${teacher.education}', '${teacher.uploadFile}')
-//     `;
 
-//     await pool.request().query(query);
-
-   
-
-//     // Eklenen öğretmenin ID'sini al
-//     const teacherId = await getTeacherId(pool, teacher.email);
-
-//     // Öğretmeni Users tablosuna ekle
-//     const username = teacher.email;
-//     const password = `${teacherId}${teacher.first}${teacher.last}`;
-//     const role = 'Teacher';
-//     const token = 'token';
-//     const img = 'assets/images/user/student.jpg';
-//     const firstName = teacher.first;
-
-    
-
-    
-
-//     const userQuery = `
-//       INSERT INTO Users (username, password, email, lastName, role, token, img, firstName)
-//       VALUES ('${username}', '${password}', '${teacher.email}', '${teacher.last}', '${role}', '${token}', '${img}', '${firstName}')
-//     `;
-//     await pool.request().query(userQuery);
-//   } catch (error) {
-//     console.log(error)
-//     throw new Error('Failed to add teacher');
-//   } 
-//   // finally {
-//   //   // Bağlantıyı havuzdan kaldır
-//   //   if (pool) {
-//   //     await pool.close();
-//   //   }
-//   // }
-// };
 
 // Öğretmenin ID'sini almak için yardımcı bir fonksiyon
 const getTeacherId = async (pool, email) => {

@@ -7,6 +7,8 @@ const studentAttendanceController = require('../controllers/studentAttendanceCon
 
 
 
+router.get('/coursestudentcounts', coursesController.CourseStudentCounts);
+
 
 
 router.get('/', coursesController.getAllCourses);
@@ -42,6 +44,11 @@ router.delete('/:courseId/teachers/:teacherId', coursesController.removeTeacherF
 
 
 router.get('/:courseId/filecountofcourse', coursesController.getFileCountByCourseId);
+
+
+
+
+
 
 
 

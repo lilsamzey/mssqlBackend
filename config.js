@@ -90,7 +90,7 @@ async function connectToDatabase() {
       user: 'admin',
       password: 'Klmn-32553255',
       server: 'mssql-142028-0.cloudclusters.net',
-     port: '19637',
+     port: 19637,
       database: 'coursemanagementsystem',
       options: {
          encrypt: true,

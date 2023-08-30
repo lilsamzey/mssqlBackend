@@ -39,18 +39,6 @@ exports.addTeacher = async (req, res) => {
 };
 
 
-// exports.addTeacher = async (req, res) => {
-//   try {
-//     const teacher = req.body;
-
-//     await teachersModel.addTeacher(teacher);
-    
-//     console.log('Added teacher name:' +teacher.first)
-//     res.status(200).json({ message: 'Teacher added successfully' });
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
 
 exports.updateTeacher = async (req, res) => {
   try {

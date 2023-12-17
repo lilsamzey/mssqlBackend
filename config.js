@@ -80,109 +80,67 @@
 
 
 
-//Cloud FREE Tier example
 
-const sql = require('mssql');
 
-async function connectToDatabase() {
-  try {
-    const config = {
-      user: 'admin',
-      password: 'Klmn-32553255',
-      server: 'mssql-142028-0.cloudclusters.net',
-     port: 19637,
-      database: 'coursemanagementsystem',
-      options: {
-         encrypt: true,
-         trustServerCertificate: true,
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+ //Amazon AWS FREE Tier example
+
+ const sql = require('mssql');
+
+ async function connectToDatabase() {
+   try {
+     const config = {
+       user: 'admin',
+       password: 'Klmn-32553255',
+       server: 'awssqlserver.ccrtpn4jk1n3.eu-central-1.rds.amazonaws.com',
+       database: 'coursemanagementsystem',
+       options: {
+          encrypt: true,
+          trustServerCertificate: true,
       }
-    };
+     };
 
-    const pool = await sql.connect(config); // Bağlantıyı 'pool' değişkenine atayın
+     const pool = await sql.connect(config); // Bağlantıyı 'pool' değişkenine atayın
 
-    console.log('Connected to the AWS database successfully!');
+     console.log('Connected to the AWS database successfully!');
 
-    // Keep alive database
-    setInterval(async () => {
-      try {
-        const result = await pool.request().query('SELECT 1');
-        console.log('Keep-alive is successful.');
-      } catch (error) {
-        console.error('Keep-alive error:', error);
-      }
-    }, 5 * 60 * 1000);  // 5 dakika
+     // Keep alive database
+     setInterval(async () => {
+       try {
+         const result = await pool.request().query('SELECT 1');
+         console.log('Keep-alive is successful.');
+       } catch (error) {
+         console.error('Keep-alive error:', error);
+       }
+     }, 5 * 60 * 1000);  // 5 dakika
 
-    // Bağlantıyı kapatmak için gerekirse kullanabilirsiniz
-    // sql.close();
-  } catch (err) {
-    console.error('Error connecting to the database:', err.message);
-  }
-}
+     // Bağlantıyı kapatmak için gerekirse kullanabilirsiniz
+     // sql.close();
+   } catch (err) {
+     console.error('Error connecting to the database:', err.message);
+   }
+ }
 
-// Fonksiyonu çağırarak veritabanına bağlanın
-connectToDatabase();
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// //Amazon AWS FREE Tier example
-
-// const sql = require('mssql');
-
-// async function connectToDatabase() {
-//   try {
-//     const config = {
-//       user: 'admin',
-//       password: 'Klmn-32553255',
-//       server: 'awssqlserver.ccrtpn4jk1n3.eu-central-1.rds.amazonaws.com',
-//       database: 'coursemanagementsystem',
-//       options: {
-//          encrypt: true,
-//          trustServerCertificate: true,
-//       }
-//     };
-
-//     const pool = await sql.connect(config); // Bağlantıyı 'pool' değişkenine atayın
-
-//     console.log('Connected to the AWS database successfully!');
-
-//     // Keep alive database
-//     setInterval(async () => {
-//       try {
-//         const result = await pool.request().query('SELECT 1');
-//         console.log('Keep-alive is successful.');
-//       } catch (error) {
-//         console.error('Keep-alive error:', error);
-//       }
-//     }, 5 * 60 * 1000);  // 5 dakika
-
-//     // Bağlantıyı kapatmak için gerekirse kullanabilirsiniz
-//     // sql.close();
-//   } catch (err) {
-//     console.error('Error connecting to the database:', err.message);
-//   }
-// }
-
-// // Fonksiyonu çağırarak veritabanına bağlanın
-// connectToDatabase();
+ // Fonksiyonu çağırarak veritabanına bağlanın
+ connectToDatabase();
 
 
 
